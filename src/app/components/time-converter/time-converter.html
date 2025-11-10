@@ -1,7 +1,22 @@
 <div class="converter-container">
   <h2>Convert Time between Time Zones</h2>
-  <p>This is where you can convert time between different time zones.</p>
+  <p>Select two countries to compare their times</p>
+  
+  <div class="countries-list">
+    <app-country-card 
+      *ngFor="let country of countryList" 
+      [countryObject]="country"
+      [disableReference]="checkDisableReference(country)"
+      (referenceSelected)="onReferenceSelected($event)"
+      (referenceDeselected)="onReferenceDeselected()"
+      (compareClicked)="onCompareCountry($event)"
+      >
+    </app-country-card>
+  </div>
+  
   <div class="converter-form">
-    <p><em>Time conversion form - To be implemented</em></p>
+    <h3>Time Difference</h3>
+    <p><em>Calculated based on selected countries</em></p>
+    <p>The difference is {{hours}} hours and {{minutes}} minutes</p>
   </div>
 </div>
