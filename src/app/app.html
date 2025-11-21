@@ -1,4 +1,4 @@
-<app-custom-header (menuClick)="drawer.toggle()"></app-custom-header>
+<app-custom-header [appTitle]="title()" (menuClick)="drawer.toggle()"></app-custom-header>
 <mat-drawer-container [hasBackdrop]="true">
   <mat-drawer #drawer mode="side">
     <button class="home" matButton routerLink="/home" (click)="drawer.close()">
@@ -14,10 +14,6 @@
     <button matButton="elevated" extended routerLink="/add-locations" (click)="drawer.close()">
       <mat-icon>save</mat-icon>
        Add locations
-    </button>
-    <button matButton="elevated" extended routerLink="/delete-locations" (click)="drawer.close()">
-      <mat-icon>delete</mat-icon>
-       Delete locations
     </button>
   </mat-drawer>
 

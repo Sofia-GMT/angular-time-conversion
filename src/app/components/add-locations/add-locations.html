@@ -2,6 +2,14 @@
   <h2>Add Locations</h2>
   <p>This is where you can add new locations for your time conversions.</p>
   <div class="add-form">
-    <p><em>Location addition form - To be implemented</em></p>
+    <mat-form-field class="example-form-field">
+      <mat-label>Clearable input</mat-label>
+      <input matInput type="text" [(ngModel)]="countryName" placeholder="Enter country name">
+      @if (countryName) {
+        <button matSuffix matIconButton aria-label="Clear" (click)="countryName=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+    </mat-form-field>
   </div>
 </div>

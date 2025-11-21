@@ -6,17 +6,13 @@
     <app-country-card 
       *ngFor="let country of countryList" 
       [countryObject]="country"
-      [disableReference]="checkDisableReference(country)"
-      (referenceSelected)="onReferenceSelected($event)"
-      (referenceDeselected)="onReferenceDeselected()"
       (compareClicked)="onCompareCountry($event)"
       >
     </app-country-card>
   </div>
   
-  <div class="converter-form">
-    <h3>Time Difference</h3>
-    <p><em>Calculated based on selected countries</em></p>
-    <p>The difference is {{hours}} hours and {{minutes}} minutes</p>
+  <div class="converter-form" *ngIf="selectedCountry">
+    <h3>Time in {{ selectedCountry.countryName }}</h3>
+    <p>{{ selectedTime }}</p>
   </div>
 </div>

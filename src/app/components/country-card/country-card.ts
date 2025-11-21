@@ -17,10 +17,8 @@ export class CountryCard {
     return 'app-country-card';
   } 
 
-  @Input() countryObject: Country = new Country('Country Name', '2024-01-01', 'US', '12:00 PM');
+  @Input() countryObject: Country = new Country('Spain', 'ES', 'Europe/Madrid');
   @Input() disableReference: boolean = false;
-  @Output() referenceSelected = new EventEmitter<Country>();
-  @Output() referenceDeselected = new EventEmitter<void>();
   @Output() compareClicked = new EventEmitter<Country>();
 
   getFlagUrl(): string {
@@ -29,14 +27,6 @@ export class CountryCard {
       return `https://cdn.jsdelivr.net/npm/country-flag-icons/3x2/${code}.svg`;
     }
     return '';
-  }
-
-  selectedReference(event: any) {
-    if (event.checked) {
-      this.referenceSelected.emit(this.countryObject);
-    } else {
-      this.referenceDeselected.emit();
-    }
   }
 
   onCompare(event: any) {
